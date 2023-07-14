@@ -23,7 +23,7 @@ const App = () => {
         const handleScroll = (event) => {
             const delta = Math.sign(event.deltaY);
             setZoomLevel((prevValue) => {
-                let newValue = prevValue + delta;
+                let newValue = prevValue - delta;
                 newValue = Math.max(1, Math.min(newValue, 10));
                 return newValue;
             });
