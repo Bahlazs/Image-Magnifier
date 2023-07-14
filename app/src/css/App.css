@@ -13,3 +13,17 @@
   height: 500px;
   margin: 20px;
 }
+
+.saturation-slider {
+  position: absolute;
+  width: 600px;
+  margin: 20px;
+  left: 30%;
+  top: 80%;
+}
+
+.data {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
