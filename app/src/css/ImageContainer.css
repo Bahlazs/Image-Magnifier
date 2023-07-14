@@ -1,0 +1,11 @@
+.image-container {
+    background-image: url("../assets/18492-city-cityscape-metropolitan_area-capital_city-the_hague-7680x4320.jpg");
+    background-size: cover;
+    width: 768px;
+    height: 432px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}

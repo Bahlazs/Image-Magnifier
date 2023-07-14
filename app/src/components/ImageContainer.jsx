@@ -1,3 +1,5 @@
+import "../css/ImageContainer.css"
+
 const ImageContainer = () => {
     return (
         <div className={'image-container'}>
