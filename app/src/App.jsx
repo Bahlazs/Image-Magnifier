@@ -1,9 +1,10 @@
 import './css/App.css';
 import image from "./assets/18492-city-cityscape-metropolitan_area-capital_city-the_hague-7680x4320.jpg";
-import Magnifier from "react-magnifier";
+// import Magnifier from "react-magnifier";
 import {useEffect, useState} from "react";
 import ZoomSlider from "./components/ZoomSlider.jsx";
 import SaturationSlider from "./components/SaturationSlider.jsx";
+import Magnifier from "./components/Magnifier.jsx";
 
 
 const App = () => {
@@ -49,22 +50,13 @@ const App = () => {
     return (
         <div className="app-container">
             <h2 className={"data"}>zoom level : {zoomLevel} saturation level : {saturLevel}%</h2>
-
-            <div className={"magnifier-container"}>
-                <Magnifier
-                    src={image}
-                    width={'768px'}
-                    height={'432px'}
-                    mgBorderWidth={1}
-                    mgShape={'circle'}
-                    mgHeight={magnifierHeight}
-                    mgWidth={magnifierWidth}
-                    zoomFactor={zoomLevel}
-                    style = {{
-                        filter: `saturate(${saturLevel}%)`
-                    }}
-                />
-            </div>
+            <Magnifier image={image}
+                       width={768}
+                       height={432}
+                       magnifieWidth={magnifierWidth}
+                       magnifierHeight={magnifierHeight}
+                       zoomLevel={zoomLevel}
+                       saturationLevel={saturLevel}/>
             <ZoomSlider zoomLevel={zoomLevel} handleSliderChange={handleZoomChange}/>
             <SaturationSlider saturLevel={saturLevel} handleSaturChange={handleSaturChange} handleKeys={handleKeyDown}/>
         </div>

@@ -1,4 +1,4 @@
-.magnifier-container {
+.magnifier {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -16,7 +16,7 @@
 
 .saturation-slider {
   position: absolute;
-  width: 600px;
+  width: 700px;
   margin: 20px;
   left: 30%;
   top: 80%;
