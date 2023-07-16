@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-function Magnifier({image, width, height, magnifierHeight, magnifieWidth, zoomLevel, saturationLevel}) {
+function Magnifier({image, magnifierHeight, magnifierWidth, zoomLevel, saturationLevel}) {
 
 
     const [[x, y], setXY] = useState([0, 0]);
@@ -10,16 +10,11 @@ function Magnifier({image, width, height, magnifierHeight, magnifieWidth, zoomLe
     return (
         <div className="magnifier">
             <div
-                className={"large-img"}
-                style={{
-                    position: "relative",
-                    height: height,
-                    width: width
-                }}
+                className={"large-img-container"}
             >
                 <img
                     src={image}
-                    style={{height: height, width: width}}
+                    className={"large-img"}
                     onMouseEnter={(e) => {
 
                         const elem = e.currentTarget;
@@ -45,34 +40,25 @@ function Magnifier({image, width, height, magnifierHeight, magnifieWidth, zoomLe
                 />
 
                 <div
-                    className={"small-image"}
+                    className={"small-img"}
                     style={{
                         display: showMagnifier ? "" : "none",
-                        position: "absolute",
 
-                        // prevent magnifier blocks the mousemove event of img
-                        pointerEvents: "none",
-                        // set size of magnifier
                         height: `${magnifierHeight}px`,
-                        width: `${magnifieWidth}px`,
-                        // move element center to cursor pos
+                        width: `${magnifierWidth}px`,
+
                         top: `${y - magnifierHeight / 2}px`,
-                        left: `${x - magnifieWidth / 2}px`,
-                        opacity: "1", // reduce opacity so you can verify position
-                        border: "1px solid lightgray",
-                        borderRadius: "100%",
-                        backgroundColor: "white",
+                        left: `${x - magnifierWidth / 2}px`,
                         backgroundImage: `url('${image}')`,
                         backgroundRepeat: "no-repeat",
+
                         filter: `saturate(${saturationLevel}%)`,
 
-                        //calculate zoomed image size
                         backgroundSize: `${imgWidth * zoomLevel}px ${
                             imgHeight * zoomLevel
                         }px`,
 
-                        //calculate position of zoomed image.
-                        backgroundPositionX: `${-x * zoomLevel + magnifieWidth / 2}px`,
+                        backgroundPositionX: `${-x * zoomLevel + magnifierWidth / 2}px`,
                         backgroundPositionY: `${-y * zoomLevel + magnifierHeight / 2}px`
                     }}
                 ></div>

@@ -10,7 +10,7 @@ const ZoomSlider = ({ zoomLevel, handleSliderChange }) => {
     }, [zoomLevel])
 
     return (
-        <div className={"zoom-slider-container"}>
+        <div className={"zoom-container"}>
             <Slider
                 value={sliderState}
                 orientation="vertical"

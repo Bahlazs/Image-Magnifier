@@ -14,19 +14,21 @@ const App = () => {
     const [zoomLevel, setZoomLevel] = useState(2)
     const [saturLevel, setSaturLevel] = useState(100)
 
+
     const handleZoomChange = (e, newValue) => {
         setZoomLevel(newValue)
     }
     const handleSaturChange = (e, newValue) => {
-       setSaturLevel(newValue)
+        setSaturLevel(newValue)
     }
 
-    const handleKeyDown = (e) => {
-        if (e.key === 'ArrowRight' && saturLevel< 100) {
+    const handleKeyPress = (event) => {
+        if (event.key === 'ArrowRight' && saturLevel <= 100) {
             setSaturLevel((prevValue) => prevValue + 1);
-        } else if (e.key === 'ArrowLeft' && saturLevel > 0) {
+        } else if (event.key === 'ArrowLeft' && saturLevel >= 0) {
             setSaturLevel((prevValue) => prevValue - 1);
         }
+
     };
 
 
@@ -40,6 +42,7 @@ const App = () => {
             });
         };
 
+
         document.addEventListener('wheel', handleScroll);
 
         return () => {
@@ -49,17 +52,18 @@ const App = () => {
 
     return (
         <div className="app-container">
-            <h2 className={"data"}>zoom level : {zoomLevel} saturation level : {saturLevel}%</h2>
+            <h1 className="title">Image Magnifier</h1>
+            <h2 className={"data"}>zoom level : {zoomLevel},  saturation level : {saturLevel}%</h2>
             <Magnifier image={image}
-                       width={768}
-                       height={432}
-                       magnifieWidth={magnifierWidth}
+                       magnifierWidth={magnifierWidth}
                        magnifierHeight={magnifierHeight}
                        zoomLevel={zoomLevel}
                        saturationLevel={saturLevel}/>
             <ZoomSlider zoomLevel={zoomLevel} handleSliderChange={handleZoomChange}/>
-            <SaturationSlider saturLevel={saturLevel} handleSaturChange={handleSaturChange} handleKeys={handleKeyDown}/>
+            <SaturationSlider saturLevel={saturLevel} handleSaturChange={handleSaturChange}
+                              handleKeys={handleKeyPress}/>
         </div>
+
     )
 }
 
