@@ -28,7 +28,6 @@ const App = () => {
         } else if (event.key === 'ArrowLeft' && saturLevel >= 0) {
             setSaturLevel((prevValue) => prevValue - 1);
         }
-
     };
 
 
