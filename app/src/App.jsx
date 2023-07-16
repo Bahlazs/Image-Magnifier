@@ -22,7 +22,7 @@ const App = () => {
         setSaturLevel(newValue)
     }
 
-    const handleKeyPress = (event) => {
+    const handleKeyDown = (event) => {
         if (event.key === 'ArrowRight' && saturLevel <= 100) {
             setSaturLevel((prevValue) => prevValue + 1);
         } else if (event.key === 'ArrowLeft' && saturLevel >= 0) {
@@ -60,7 +60,7 @@ const App = () => {
                        saturationLevel={saturLevel}/>
             <ZoomSlider zoomLevel={zoomLevel} handleSliderChange={handleZoomChange}/>
             <SaturationSlider saturLevel={saturLevel} handleSaturChange={handleSaturChange}
-                              handleKeys={handleKeyPress}/>
+                              handleKeys={handleKeyDown}/>
         </div>
 
     )

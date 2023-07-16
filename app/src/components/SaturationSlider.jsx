@@ -15,7 +15,7 @@ const SaturationSlider = ({saturLevel, handleSaturChange, handleKeys}) => {
                 defaultValue={100}
                 step={1}
                 marks
-                min={1}
+                min={0}
                 max={100}
                 valueLabelDisplay="auto"
                 onChange={handleSaturChange}
