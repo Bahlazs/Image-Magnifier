@@ -3,7 +3,7 @@ import {useState} from "react";
 function Magnifier({image, magnifierHeight, magnifierWidth, zoomLevel, saturationLevel}) {
 
 
-    const [[x, y], setXY] = useState([0, 0]);
+    const [[xPos, yPos], setXY] = useState([0, 0]);
     const [[imgWidth, imgHeight], setSize] = useState([0, 0]);
     const [showMagnifier, setShowMagnifier] = useState(false);
 
@@ -28,9 +28,9 @@ function Magnifier({image, magnifierHeight, magnifierWidth, zoomLevel, saturatio
                         const {top, left} = elem.getBoundingClientRect();
 
 
-                        const x = e.clientX - left;
-                        const y = e.clientY - top;
-                        setXY([x, y]);
+                        const xPos = e.clientX - left;
+                        const yPos = e.clientY - top;
+                        setXY([xPos, yPos]);
                     }}
                     onMouseLeave={() => {
                         // close magnifier
@@ -47,8 +47,8 @@ function Magnifier({image, magnifierHeight, magnifierWidth, zoomLevel, saturatio
                         height: `${magnifierHeight}px`,
                         width: `${magnifierWidth}px`,
 
-                        top: `${y - magnifierHeight / 2}px`,
-                        left: `${x - magnifierWidth / 2}px`,
+                        top: `${yPos - magnifierHeight / 2}px`,
+                        left: `${xPos - magnifierWidth / 2}px`,
                         backgroundImage: `url('${image}')`,
                         backgroundRepeat: "no-repeat",
 
@@ -58,8 +58,8 @@ function Magnifier({image, magnifierHeight, magnifierWidth, zoomLevel, saturatio
                             imgHeight * zoomLevel
                         }px`,
 
-                        backgroundPositionX: `${-x * zoomLevel + magnifierWidth / 2}px`,
-                        backgroundPositionY: `${-y * zoomLevel + magnifierHeight / 2}px`
+                        backgroundPositionX: `${-xPos * zoomLevel + magnifierWidth / 2}px`,
+                        backgroundPositionY: `${-yPos * zoomLevel + magnifierHeight / 2}px`
                     }}
                 ></div>
             </div>

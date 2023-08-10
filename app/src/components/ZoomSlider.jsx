@@ -3,16 +3,12 @@ import {useEffect, useState} from "react";
 
 const ZoomSlider = ({ zoomLevel, handleSliderChange }) => {
 
-    const [sliderState ,setSliderState]= useState(2)
 
-    useEffect(() =>{
-        setSliderState(zoomLevel)
-    }, [zoomLevel])
 
     return (
         <div className={"zoom-container"}>
             <Slider
-                value={sliderState}
+                value={zoomLevel}
                 orientation="vertical"
                 defaultValue={2}
                 step={1}
