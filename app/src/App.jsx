@@ -51,8 +51,13 @@ const App = () => {
 
     return (
         <div className="app-container">
-            <h1 className="title">Image Magnifier</h1>
-            <h2 className={"data"}>zoom level : {zoomLevel},  saturation level : {saturLevel}%</h2>
+            <div className="title-and-data">
+                <h1 className="title">Image Magnifier</h1>
+                <div className="data">
+                    <h2 className={"zoom-data"}>zoom level : {zoomLevel}, </h2>
+                    <h2 className={"saturation-data"}> saturation level : {saturLevel}%</h2>
+                </div>
+            </div>
             <Magnifier image={image}
                        magnifierWidth={magnifierWidth}
                        magnifierHeight={magnifierHeight}

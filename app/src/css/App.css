@@ -1,4 +1,4 @@
-body {
+:root {
 
   --image-width: 762px;
   --image-height: 432px;
@@ -6,7 +6,7 @@ body {
 
   background-color: var(--background-color);
   color: white;
-  font-family: Chilanka, serif
+  font-family: "Cascadia Code", serif;
 
 }
 
@@ -17,10 +17,8 @@ body {
 }
 
 .title {
-  position: absolute;
-  left: 50%;
-  top: 5%;
-  transform: translateX(-50%)
+  margin: 1rem;
+  padding: 1rem;
 }
 
 .magnifier {
@@ -64,10 +62,14 @@ body {
   left: calc(50% - 700px/2);
 }
 
+.title-and-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .data {
-  position: absolute;
-  top: calc(50% - 70px - 432px/2);
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
+  display: flex;
+
 }
