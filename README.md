@@ -59,9 +59,7 @@ http://localhost:5173/
 If you run into any problems contact me on **nick.balazs18@gmial.com**
 
 ## Future Plans
-- User role
-- Admin role
-- News types
-- News relevance system
+- changeable image
+- more image editing features
 
 
