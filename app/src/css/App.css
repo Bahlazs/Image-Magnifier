@@ -26,11 +26,11 @@
 .magnifier {
   display: flex;
   justify-content: center;
-  cursor: none;
 }
 
 .large-img-container {
   position: relative;
+  cursor: none;
 }
 
 .large-img {
