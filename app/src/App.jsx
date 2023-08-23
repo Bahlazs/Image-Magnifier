@@ -35,10 +35,20 @@ const App = () => {
 
         };
         const handleKeyDown = (event) => {
-            if (event.key === 'ArrowRight' && saturLevel <= 100) {
-                setSaturLevel((prevValue) => prevValue + 1);
-            } else if (event.key === 'ArrowLeft' && saturLevel >= 0) {
-                setSaturLevel((prevValue) => prevValue - 1);
+            if (event.key === 'ArrowRight') {
+                setSaturLevel((prevValue) => {
+                    if(prevValue < 100){
+                        prevValue = prevValue + 1
+                    }
+                    return prevValue
+                });
+            } else if (event.key === 'ArrowLeft') {
+                setSaturLevel((prevValue) => {
+                    if(prevValue > 0){
+                        prevValue = prevValue - 1
+                    }
+                    return prevValue
+                });
             }
         };
 
