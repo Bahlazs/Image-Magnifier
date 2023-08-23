@@ -1,6 +1,5 @@
 import './css/App.css';
 import image from "./assets/18492-city-cityscape-metropolitan_area-capital_city-the_hague-7680x4320.jpg";
-// import Magnifier from "react-magnifier";
 import {useEffect, useState} from "react";
 import ZoomSlider from "./components/ZoomSlider.jsx";
 import SaturationSlider from "./components/SaturationSlider.jsx";
@@ -22,30 +21,33 @@ const App = () => {
         setSaturLevel(newValue)
     }
 
-    const handleKeyDown = (event) => {
-        if (event.key === 'ArrowRight' && saturLevel <= 100) {
-            setSaturLevel((prevValue) => prevValue + 1);
-        } else if (event.key === 'ArrowLeft' && saturLevel >= 0) {
-            setSaturLevel((prevValue) => prevValue - 1);
-        }
-    };
-
 
     useEffect(() => {
         const handleScroll = (event) => {
+            event.preventDefault();
+            event.stopPropagation()
             const delta = Math.sign(event.deltaY);
             setZoomLevel((prevValue) => {
                 let newValue = prevValue - delta;
                 newValue = Math.max(1, Math.min(newValue, 10));
                 return newValue;
             });
+
+        };
+        const handleKeyDown = (event) => {
+            if (event.key === 'ArrowRight' && saturLevel <= 100) {
+                setSaturLevel((prevValue) => prevValue + 1);
+            } else if (event.key === 'ArrowLeft' && saturLevel >= 0) {
+                setSaturLevel((prevValue) => prevValue - 1);
+            }
         };
 
 
-        document.addEventListener('wheel', handleScroll);
-
+        document.addEventListener('wheel', handleScroll, {passive: false});
+        document.addEventListener('keyup', handleKeyDown, {passive: true})
         return () => {
             document.removeEventListener('wheel', handleScroll);
+            document.removeEventListener('keypress', handleKeyDown)
         };
     }, []);
 
@@ -63,9 +65,12 @@ const App = () => {
                        magnifierHeight={magnifierHeight}
                        zoomLevel={zoomLevel}
                        saturationLevel={saturLevel}/>
-            <ZoomSlider zoomLevel={zoomLevel} handleSliderChange={handleZoomChange}/>
-            <SaturationSlider saturLevel={saturLevel} handleSaturChange={handleSaturChange}
-                              handleKeys={handleKeyDown}/>
+            <div className="slider-container">
+                <h2 className="zoom-controls">Adjust zoom level with the scroll wheel</h2>
+                <ZoomSlider zoomLevel={zoomLevel} handleSliderChange={handleZoomChange}/>
+                <h2 className="saturation-controls">Adjust saturation level with the left and right arrow keys </h2>
+                <SaturationSlider saturLevel={saturLevel} handleSaturChange={handleSaturChange}/>
+            </div>
         </div>
 
     )

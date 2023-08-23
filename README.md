@@ -11,7 +11,8 @@
 
 
 ## About
-In this project you can inspect a city view image in detail through a magnifier and adjust the zoom and saturation level on it. In this project i wanted to build an only frontend application and practice react with it. 
+In this project you can inspect a city view image in detail through a magnifier and adjust the zoom and saturation level on it. 
+With this project i wanted to build an only frontend application and practice react with it and css with it. **The application is optimized for desktop use only!**  
 
 
 ## Technologies

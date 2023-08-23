@@ -1,15 +1,11 @@
-import { Slider } from "@mui/material";
-import {useEffect, useState} from "react";
+import {Slider} from "@mui/material";
 
-const ZoomSlider = ({ zoomLevel, handleSliderChange }) => {
-
-
+const ZoomSlider = ({zoomLevel, handleSliderChange}) => {
 
     return (
-        <div className={"zoom-container"}>
+        <div className={"zoom-slider-container"}>
             <Slider
                 value={zoomLevel}
-                orientation="vertical"
                 defaultValue={2}
                 step={1}
                 marks

@@ -1,11 +1,9 @@
-import { Slider } from "@mui/material";
-import {useEffect, useState} from "react";
+import {Slider} from "@mui/material";
 
-const SaturationSlider = ({saturLevel, handleSaturChange, handleKeys}) => {
-
+const SaturationSlider = ({saturLevel, handleSaturChange}) => {
 
     return (
-        <div className={"saturation-slider"}>
+        <div className={"saturation-slider-container"}>
             <Slider
                 value={saturLevel}
                 defaultValue={100}
@@ -15,7 +13,6 @@ const SaturationSlider = ({saturLevel, handleSaturChange, handleKeys}) => {
                 max={100}
                 valueLabelDisplay="auto"
                 onChange={handleSaturChange}
-                onKeyDown={handleKeys}
             />
         </div>
     )
