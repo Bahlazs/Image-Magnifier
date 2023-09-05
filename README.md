@@ -28,7 +28,7 @@ With this project i wanted to build an only frontend application and practice re
 
 ## Setup guide
 
-#### dependencies
+#### Dependencies
 - nvm
 - npm
 
